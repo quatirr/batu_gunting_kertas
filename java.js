@@ -5,7 +5,7 @@ const resultMessage = document.getElementById('result-message');
 const userScoreElement = document.getElementById('user-score');
 const computerScoreElement = document.getElementById('computer-score');
 const computerImg = document.getElementById('computer-img');
-const userImg = document.getElementById('user-img');  // Menambahkan elemen gambar pengguna
+const userImg = document.getElementById('user-img');  
 
 let computerChoice = 'rock'; 
 let interval; 
@@ -33,10 +33,8 @@ function animateComputerChoice() {
 }
 
 function playRound(userChoice) {
-    // Menampilkan pilihan pengguna
     document.getElementById('user-choice').textContent = `Pilihan Anda: ${userChoice}`;
     
-    // Menampilkan gambar pilihan pengguna
     userImg.src = `${userChoice}.png`;
 
     if (userChoice === computerChoice) {
@@ -60,9 +58,8 @@ function playRound(userChoice) {
 }
 
 document.getElementById('rock').addEventListener('click', () => {
-    // Menampilkan pilihan pengguna segera setelah memilih
     document.getElementById('user-choice').textContent = "Pilihan Anda: Batu";
-    userImg.src = "rock.png";  // Gambar pilihan pengguna
+    userImg.src = "rock.png";  
     animateComputerChoice(); 
     setTimeout(() => { 
         playRound('rock');
@@ -70,9 +67,8 @@ document.getElementById('rock').addEventListener('click', () => {
 });
 
 document.getElementById('paper').addEventListener('click', () => {
-    // Menampilkan pilihan pengguna segera setelah memilih
     document.getElementById('user-choice').textContent = "Pilihan Anda: Kertas";
-    userImg.src = "paper.png";  // Gambar pilihan pengguna
+    userImg.src = "paper.png";  
     animateComputerChoice(); 
     setTimeout(() => {
         playRound('paper');
@@ -80,9 +76,8 @@ document.getElementById('paper').addEventListener('click', () => {
 });
 
 document.getElementById('scissors').addEventListener('click', () => {
-    // Menampilkan pilihan pengguna segera setelah memilih
     document.getElementById('user-choice').textContent = "Pilihan Anda: Gunting";
-    userImg.src = "scissors.png";  // Gambar pilihan pengguna
+    userImg.src = "scissors.png";  
     animateComputerChoice(); 
     setTimeout(() => {
         playRound('scissors');
