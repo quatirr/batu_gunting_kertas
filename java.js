@@ -17,8 +17,14 @@ function getRandomChoice() {
 }
 
 function animateComputerChoice(userChoice) {
-    let timeLeft = 3;  
+    let timeLeft = 5;  
     resultMessage.textContent = "Komputer sedang memilih..."; 
+    document.getElementById('user-choice').style.display = "none"; 
+
+    document.getElementById('rock').disabled = true;
+    document.getElementById('paper').disabled = true;
+    document.getElementById('scissors').disabled = true;
+
     interval = setInterval(() => {
         computerChoice = getRandomChoice();
         computerImg.src = `${computerChoice}.png`;  
@@ -33,6 +39,7 @@ function animateComputerChoice(userChoice) {
 }
 
 function playRound(userChoice) {
+    document.getElementById('user-choice').style.display = "block"; // Tampilkan kembali pilihan pengguna
     document.getElementById('user-choice').textContent = `Pilihan Anda: ${userChoice}`;
     userImg.src = `${userChoice}.png`; 
 
@@ -54,6 +61,10 @@ function playRound(userChoice) {
 
     userScoreElement.textContent = `Skor Anda: ${userScore}`;
     computerScoreElement.textContent = `Skor Komputer: ${computerScore}`;
+
+    document.getElementById('rock').disabled = false;
+    document.getElementById('paper').disabled = false;
+    document.getElementById('scissors').disabled = false;
 }
 
 document.getElementById('rock').addEventListener('click', () => {
