@@ -16,26 +16,25 @@ function getRandomChoice() {
     return choices[randomIndex];
 }
 
-function animateComputerChoice() {
-    let timeLeft = 60; 
+function animateComputerChoice(userChoice) {
+    let timeLeft = 3;  
     resultMessage.textContent = "Komputer sedang memilih..."; 
     interval = setInterval(() => {
         computerChoice = getRandomChoice();
-        computerImg.src = `${computerChoice}.png`;
+        computerImg.src = `${computerChoice}.png`;  
         timeLeft--;
 
         if (timeLeft === 0) {
             clearInterval(interval);  
             resultMessage.textContent = ""; 
-            playRound();
+            playRound(userChoice);
         }
     }, 1000); 
 }
 
 function playRound(userChoice) {
     document.getElementById('user-choice').textContent = `Pilihan Anda: ${userChoice}`;
-    
-    userImg.src = `${userChoice}.png`;
+    userImg.src = `${userChoice}.png`; 
 
     if (userChoice === computerChoice) {
         resultMessage.textContent = "Seri!";
@@ -60,26 +59,17 @@ function playRound(userChoice) {
 document.getElementById('rock').addEventListener('click', () => {
     document.getElementById('user-choice').textContent = "Pilihan Anda: Batu";
     userImg.src = "rock.png";  
-    animateComputerChoice(); 
-    setTimeout(() => { 
-        playRound('rock');
-    }, 60000);
+    animateComputerChoice('rock'); 
 });
 
 document.getElementById('paper').addEventListener('click', () => {
     document.getElementById('user-choice').textContent = "Pilihan Anda: Kertas";
     userImg.src = "paper.png";  
-    animateComputerChoice(); 
-    setTimeout(() => {
-        playRound('paper');
-    }, 60000); 
+    animateComputerChoice('paper');  
 });
 
 document.getElementById('scissors').addEventListener('click', () => {
     document.getElementById('user-choice').textContent = "Pilihan Anda: Gunting";
     userImg.src = "scissors.png";  
-    animateComputerChoice(); 
-    setTimeout(() => {
-        playRound('scissors');
-    }, 60000);
+    animateComputerChoice('scissors'); 
 });
